@@ -1,0 +1,9 @@
+# Temporary evidence files (keep only desktop.png and mobile.png)
+evidence/desktop-full.png
+evidence/mobile-full.png
+evidence/narrow.png
+evidence/overflow-test.html
+
+# OS files
+.DS_Store
+Thumbs.db
