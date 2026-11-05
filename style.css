@@ -7,7 +7,7 @@
 
 /* ── RESET ──────────────────────────────────────────────────────── */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; overflow-x: hidden; }
+html { scroll-behavior: smooth; }
 
 /* ── DESIGN TOKENS ──────────────────────────────────────────────── */
 :root {
@@ -36,7 +36,6 @@ body {
   font: 16px/1.6 system-ui, -apple-system, 'Segoe UI', sans-serif;
   color: var(--text);
   background: var(--bg);
-  overflow-x: hidden;
   word-break: break-word;
   overflow-wrap: break-word;
 }
@@ -209,6 +208,11 @@ button { cursor: pointer; }
 }
 
 /* ── SECTION ────────────────────────────────────────────────────── */
+.section,
+#top {
+  scroll-margin-top: 5rem;
+}
+
 .section { margin-bottom: 4rem; position: relative; }
 .section:last-child { margin-bottom: 0; }
 
@@ -487,7 +491,21 @@ button { cursor: pointer; }
 @media (max-width: 320px) {
   body { font-size: 14px; }
   .hero { padding: 2rem .75rem 1.75rem; }
+  .hero-name { font-size: 1.6rem; }
   .main-content { padding: 1.5rem .75rem 2rem; }
   .nav-links a { font-size: .78rem; }
   .skill-tag { font-size: .78rem; padding: .25rem .7rem; }
+}
+
+/* ── Accessibility: Reduced Motion ── */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }
